@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weighted Voronoi Stippling</title>
+    <link rel="stylesheet" href="stipple.css">
+    <script src="https://unpkg.com/d3-delaunay@6"></script> 
+    <!-- Using unpkg for d3-delaunay as per plan -->
+</head>
+<body>
+    <div class="container">
+        <h1>Weighted Voronoi Stippling</h1>
+        <div class="controls">
+            <input type="file" id="upload" accept="image/*">
+            <span id="status">Upload an image to start</span>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <script src="stipple.js"></script>
+</body>
+</html>
