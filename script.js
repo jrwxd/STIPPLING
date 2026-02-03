@@ -12,10 +12,35 @@ let density = []; // 1D array of density values
 let isRunning = false;
 let animationId;
 
+const dropZone = document.getElementById('drop-zone');
+
 // Handle image upload
 fileInput.addEventListener('change', async (e) => {
-    if (e.target.files.length === 0) return;
-    const file = e.target.files[0];
+    handleFiles(e.target.files);
+});
+
+dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+});
+
+dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        handleFiles(e.dataTransfer.files);
+    }
+});
+
+async function handleFiles(files) {
+    if (files.length === 0) return;
+    const file = files[0];
     const bitmap = await createImageBitmap(file);
 
     // Resize image to reasonable dimensions for performance
@@ -63,7 +88,7 @@ fileInput.addEventListener('change', async (e) => {
     if (isRunning) cancelAnimationFrame(animationId);
     isRunning = true;
     animate();
-});
+}
 
 function animate() {
     if (!isRunning) return;

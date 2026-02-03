@@ -14,8 +14,11 @@
     <div class="container">
         <h1>Weighted Voronoi Stippling</h1>
         <div class="controls">
-            <input type="file" id="upload" accept="image/*">
-            <span id="status">Upload an image to start</span>
+            <div class="drop-zone" id="drop-zone">
+                <p>Drag & drop an image here, or click to select</p>
+                <input type="file" id="upload" accept="image/*">
+            </div>
+            <span id="status">Ready</span>
         </div>
         <canvas id="canvas"></canvas>
     </div>
