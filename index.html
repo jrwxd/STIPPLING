@@ -18,6 +18,10 @@
                 <p>Drag & drop an image here, or click to select</p>
                 <input type="file" id="upload" accept="image/*">
             </div>
+            <div class="slider-container">
+                <label for="pointCount">Stipples: <span id="pointValue">2000</span></label>
+                <input type="range" id="pointCount" min="100" max="20000" value="2000" step="100">
+            </div>
             <span id="status">Ready</span>
         </div>
         <canvas id="canvas"></canvas>

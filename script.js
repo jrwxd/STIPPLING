@@ -4,6 +4,8 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const fileInput = document.getElementById('upload');
 const statusDiv = document.getElementById('status');
+const pointInput = document.getElementById('pointCount');
+const pointValue = document.getElementById('pointValue');
 
 let width, height;
 let points = [];
@@ -70,6 +72,13 @@ async function handleFiles(files) {
         density[i] = 1 - brightness; // Darker areas have higher weight
     }
 
+    startSimulation();
+}
+
+function startSimulation() {
+    if (!width || !height) return; // No image loaded
+
+    nPoints = parseInt(pointInput.value);
     statusDiv.textContent = `Processing ${width}x${height} image with ${nPoints} points...`;
 
     // Initialize points using rejection sampling for better starting distribution
@@ -89,6 +98,14 @@ async function handleFiles(files) {
     isRunning = true;
     animate();
 }
+
+// Handle slider change
+pointInput.addEventListener('input', (e) => {
+    pointValue.textContent = e.target.value;
+    if (density.length > 0) {
+        startSimulation();
+    }
+});
 
 function animate() {
     if (!isRunning) return;
