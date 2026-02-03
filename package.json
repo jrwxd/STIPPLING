@@ -1,0 +1,28 @@
+{
+  "name": "stippling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrwxd/STIPPLING.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrwxd/STIPPLING/issues"
+  },
+  "homepage": "https://github.com/jrwxd/STIPPLING#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "d3-delaunay": "^6.0.4"
+  }
+}
